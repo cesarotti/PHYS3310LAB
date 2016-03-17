@@ -100,9 +100,6 @@ void EventAction::EndOfEventAction(const G4Event* event)
 
   G4AnalysisManager* analysisMan = G4AnalysisManager::Instance();
 
-  G4double energyDep(0.);
-  G4double zPos(0.); // Just to test
-
  
   TestHit* hit = (*tHC)[0];
   G4double eDep = hit->GetEnergyDep();

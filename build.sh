@@ -7,7 +7,7 @@ cd /home/local1/PHYS3310lab/example01Build #UPDATE TO YOUR OWN PATHWAY
 cmake -DGEANT4_BUILD_MULTITHREADED=ON -DGeant4_DIR=/usr/local/geant4.10.00.p01/lib64/Geant4-10.0.0 /home/local1/PHYS3310lab/example01 #UPDATE TO YOUR OWN PATHWAY
 make clean
 make -j4
-./example01
+./example01 ../run.mac
 mkdir ../simResults
 currentfolder=$(date +%Y:%m:%d#%H:%M:%S)
 mkdir ../simResults/$currentfolder

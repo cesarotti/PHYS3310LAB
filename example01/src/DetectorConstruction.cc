@@ -92,20 +92,9 @@ void DetectorConstruction::DefineMaterials()
 
   nistManager->FindOrBuildMaterial("G4_AIR");
  
-  G4double z, a, density, pressure, temperature;
+  G4double z, a, density;
   G4String name, symbol;
   G4int nComp;
-
-
-  //Vacuum for chamber
-  density = universe_mean_density;
-  pressure = 1.e-19*pascal;
-  temperature = 0.1*kelvin;
-  G4Material* vacuum = new G4Material(name="Vacuum", z=1., a=1.01*g/mole, 
-					  density, kStateGas, temperature, 
-					  pressure);
-
-  fWorldMaterial = vacuum;
 
 
   //Sodium Iodide for the crystals
@@ -126,7 +115,6 @@ void DetectorConstruction::DefineMaterials()
   nistManager->FindOrBuildMaterial("G4_SODIUM_IODIDE");
 
   a = 207.20*g/mole;
-  G4Element* elPb = new G4Element(name="Lead"    ,symbol="Pb", z=82., a);
   G4Material* lead = new G4Material(name="Lead", z=82., a,
 				    density =11.34*g/cm3);
 
@@ -145,19 +133,19 @@ G4VPhysicalVolume* DetectorConstruction::DefineVolumes()
 
   G4Material* naI = G4Material::GetMaterial("G4_SODIUM_IODIDE");
 
-  //fCalorMaterial = naI;
+  fCalorMaterial = naI;
 
   fWorldMaterial = Air;
 
 
   //Sizes and lengths
 
-  G4double crystalLength = 17.8*cm; 
-  G4double crystalWidth = 2.5*cm;
+  G4double crystalLength = 2.6*cm; 
+  G4double crystalWidth = 2.2*cm;
   G4double worldLength = 2*12*2.54*cm;
   G4double pbThick = 1.*cm; 
   G4double pbFace = 5.*cm; 
-  G4double spacing = 7.8*cm;
+  G4double spacing =6.7*cm;
 
   G4int leadPlace=0;
 

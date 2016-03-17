@@ -46,14 +46,16 @@ PrimaryGeneratorAction::PrimaryGeneratorAction()
 
   //Direction of beam
   G4double pi = 3.14159264358979;
-  G4double theta = G4RandFlat::shoot(0., pi);
+  G4double theta = G4RandFlat::shoot(0., .3173);
   G4double phi = G4RandFlat::shoot(0., 2*pi);
-
+  
   fParticleGun1->
     SetParticleMomentumDirection(G4ThreeVector(std::cos(phi)*std::sin(theta),
 					       std::sin(phi)*std::sin(theta),
 					       std::cos(theta))); 
-  // fParticleGun1->SetParticleMomentumDirection(G4ThreeVector(0., 0., 1.));
+  
+
+  //fParticleGun1->SetParticleMomentumDirection(G4ThreeVector(0., 0., 1.));
 
  
   //Note, this sets the KINETIC energy of the particle, not the TOTAL
